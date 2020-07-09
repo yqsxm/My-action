@@ -27,4 +27,4 @@ sed -i 's/192.168.1.1/192.168.1.199/g' package/base-files/files/bin/config_gener
 # Add some default settings
 
 #\cp -rf ../lede/zzz-default-settings package/lean/default-settings/files/zzz-default-settings
-curl -fsSL https://raw.githubusercontent.com/1orz/My-action/master/lean-lede/zzz-default-settings > package/lean/default-settings/files/zzz-default-settings
+curl -fsSL https://raw.githubusercontent.com/yqsxm/My-action/master/lean-lede/zzz-default-settings > package/lean/default-settings/files/zzz-default-settings
