@@ -12,7 +12,7 @@ uci set fstab.@global[0].anon_mount=1
 uci commit fstab
 
 #The default password is "password"
-sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' /etc/shadow
+# sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' /etc/shadow
 
 sed -i "s/# //g" /etc/opkg/distfeeds.conf
 
