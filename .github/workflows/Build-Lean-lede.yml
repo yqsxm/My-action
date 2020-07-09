@@ -5,8 +5,8 @@ on:
       - master
     paths:
       - '.github/workflows/Build-Lean-lede.yml'
-  schedule:
-        - cron: 0 */4 * * *
+  #schedule:
+  #      - cron: 0 */4 * * *
 
 jobs:
   x86:
