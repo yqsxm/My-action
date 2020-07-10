@@ -5,8 +5,8 @@ on:
       - master
     paths:
       - '.github/workflows/Build-Golang-Project.yml'
-  schedule:
-        - cron: 0 */2 * * *
+  #schedule:
+  #      - cron: 0 */2 * * *
 
 jobs:
   Gogs:
