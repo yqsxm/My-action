@@ -61,30 +61,30 @@ jobs:
       uses: actions/upload-artifact@master
       if: always()
       with:
-        name: LEDE-x86_64-bin-dictionary
+        name: LEDE-x86_32-bin-dictionary
         path: lede/bin
         
-    - name: Only Upload Packages to Main Download Station
-      if: success()
-      run: |
-        cd lede/bin
-        zip -r x86_64-Package.zip . -i *.ipk
-        curl -F "token=${{ secrets.UPLOAD_TOKEN }}" -F "location=Router/LEDE/x86_64/Lean-Package" -F "file=@x86_64-Package.zip" ${{ secrets.MAIN_UPLOAD_PROCESSOR }}
-        curl --socks5 ${{ secrets.PROXY_ADDR }} -U ${{ secrets.PROXY_USER }} -F "token=${{ secrets.UPLOAD_TOKEN }}" -F "location=Router/LEDE/x86_64/Lean-Package" -F "file=@x86_64-Package.zip" ${{ secrets.CN_STATION_PROCESSOR }}
+    #- name: Only Upload Packages to Main Download Station
+    #  if: success()
+    #  run: |
+    #    cd lede/bin
+    #    zip -r x86_64-Package.zip . -i *.ipk
+    #    curl -F "token=${{ secrets.UPLOAD_TOKEN }}" -F "location=Router/LEDE/x86_64/Lean-Package" -F "file=@x86_64-Package.zip" ${{ secrets.MAIN_UPLOAD_PROCESSOR }}
+    #    curl --socks5 ${{ secrets.PROXY_ADDR }} -U ${{ secrets.PROXY_USER }} -F "token=${{ secrets.UPLOAD_TOKEN }}" -F "location=Router/LEDE/x86_64/Lean-Package" -F "file=@x86_64-Package.zip" ${{ secrets.CN_STATION_PROCESSOR }}
         
-    - name: Setup Upload dictionary
-      if: always()
-      run: |
-        cd lede/bin/targets/*/*
-        rm -rf packages
-        echo "::set-env name=FIRMWARE::$(pwd)"
+    #- name: Setup Upload dictionary
+    #  if: always()
+    #  run: |
+    #    cd lede/bin/targets/*/*
+    #    rm -rf packages
+    #    echo "::set-env name=FIRMWARE::$(pwd)"
         
-    - name: Only Upload firmware (Without packages)
-      uses: actions/upload-artifact@master
-      if: always()
-      with:
-        name: x86_32
-        path: ${{ env.FIRMWARE }}
+    #- name: Only Upload firmware (Without packages)
+    #  uses: actions/upload-artifact@master
+    #  if: always()
+    #  with:
+    #    name: x86_32
+    #    path: ${{ env.FIRMWARE }}
         
     #- name: Upload firmware to Main Download Station (Without packages)
     #  if: success()
